@@ -83,13 +83,13 @@ def run_loop_back(read_cash, buy_factors, sell_factors, stock_picks=None, choice
 
     benchmark = AbuBenchmark(n_folds=n_folds, start=start, end=end)
     # 资金类初始化
-    def free_commission(trade_cnt, price):
+    #def free_commission(trade_cnt, price):
                             # 免手续费
-        return 0
-    commission_dict = {'buy_commission_func': free_commission,
-                                         'sell_commission_func': free_commission}
-    capital =  AbuCapital(read_cash, benchmark, user_commission_dict=commission_dict)
-    
+        #return 0
+    #commission_dict = {'buy_commission_func': free_commission,
+                                         #'sell_commission_func': free_commission}
+    #capital =  AbuCapital(read_cash, benchmark, user_commission_dict=commission_dict)
+    capital =  AbuCapital(read_cash, benchmark)
 
     """
          win_to_one:
