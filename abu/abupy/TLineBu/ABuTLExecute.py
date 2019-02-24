@@ -519,10 +519,12 @@ def support_resistance_predict(x, y, est, support_resistance, is_support, show=T
     for k in set(support_resistance_k):
         if is_support:
             # 如果是支撑位要找到最小值的index
-            ind = d_pd[d_pd['cluster'] == k]['y'].argmin()
+            ind = d_pd[d_pd['cluster'] == k]['y'].idxmin()
+            #ind = d_pd[d_pd['cluster'] == k]['y'].argmin()
         else:
             # 如果是阻力位找到最大值的index
-            ind = d_pd[d_pd['cluster'] == k]['y'].argmax()
+            ind = d_pd[d_pd['cluster'] == k]['y'].idxmax()
+            #ind = d_pd[d_pd['cluster'] == k]['y'].argmax()
         # 最终的结果只要x的值
         choice_x = int(d_pd.iloc[ind]['x'])
         k_list.append(choice_x)
